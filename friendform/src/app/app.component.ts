@@ -14,7 +14,9 @@ export class AppComponent {
   languages = ['PHP', 'HTML', 'Javascript', 'CSS', 'Angular'];
   langError = true;
   friendModel = new Friend('', '', '', 0, 'default');
-  allFriends = [];
+  // allFriends = [];
+  allFriends = [{firstName: 'Coach', lastName: 'Tim', email: 'tim.broos@becode.org', telephone: '0469420666', signatureMove: 'Yeet', language: 'Javascript'}];
+
   url = 'http://localhost:9100/allFriends';
   constructor(private addFriendService: AddFriendService){}
 
@@ -38,8 +40,12 @@ export class AppComponent {
 
   public async getAllFriends(url: string): Promise<any> {
     return await fetch(this.url, {method: 'get', headers: {'Content-type': 'applicaiton/json'}})
-    .then(response => response.json())
-    .then(data => this.allFriends = data);
+    // .then(response => response.json())
+    // .then(data => this.allFriends = data);
+    .then(response => {
+      return response.json();
+    })
+    .then(response => this.allFriends = response);
   }
 
   ngOnInit(): any {
