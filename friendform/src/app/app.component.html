@@ -27,7 +27,7 @@
     <div class="form-group">
       <label>Phone Number</label>
       <input type="tel" #phone="ngModel" required pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched"
-        class="form-control" name="phonenumber" [(ngModel)]="friendModel.telephone">
+        class="form-control" name="telephone" [(ngModel)]="friendModel.telephone">
       <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">11 Digits phone number is required. </small> -->
       <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
           <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required.</small>
@@ -47,4 +47,11 @@
 
     <button class="btn btn-primary" [disabled]="form.form.invalid || langError" id="button" type="submit">Submit Form</button>
   </form>
+</div>
+
+<div class="list">
+    <h2>Friend List: </h2>
+    <li *ngFor="let friend of allFriends">
+        {{friend.firstname + ' ' + friend.lastname + ' ' + friend.email + ' ' + friend.phonenumber + ' ' + friend.language}}
+    </li>
 </div>
