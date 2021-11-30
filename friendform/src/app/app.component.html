@@ -1,36 +1,48 @@
-{{ friendModel | json }}
-
 <div class="container-fluid">
-    <h2>Friend Application Form</h2>
-    <form #form="ngForm">
-        <div class="form-group">
-            <label>First Name</label>
-            <input type="text" class="form-control" name="firstname" [(ngModel)]="friendModel.firstName">
-        </div>
+  <h2>Friend Application Form</h2>
+  <form #form="ngForm">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" #firstname="ngModel" required [class.is-invalid]="firstname.invalid && firstname.touched"
+        class="form-control" name="firstname" [(ngModel)]="friendModel.firstName">
+      <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched">Firstname is required. </small>
+    </div>
 
-        <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" class="form-control" name="lastname"  [(ngModel)]="friendModel.lastName">
-        </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" #lastname="ngModel" required [class.is-invalid]="lastname.invalid && lastname.touched"
+        class="form-control" name="lastname" [(ngModel)]="friendModel.lastName">
+      <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">Lastname is required. </small>
+    </div>
 
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email"  [(ngModel)]="friendModel.email">
-        </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" #email="ngModel" required [class.is-invalid]="email.invalid && email.touched"
+        class="form-control" name="email" [(ngModel)]="friendModel.email">
+      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required. </small>
+    </div>
 
-        <div class="form-group">
-            <label>Phone Number</label>
-            <input type="text" class="form-control" name="phonenumber"  [(ngModel)]="friendModel.telephone">
-        </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" #phone="ngModel" required pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched"
+        class="form-control" name="phonenumber" [(ngModel)]="friendModel.telephone">
+      <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">11 Digits phone number is required. </small> -->
+      <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+          <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required.</small>
+          <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 10 digits</small>
+      </div>
+    </div>
 
-        <div class="form-group">
-            <label>Favourite Language</label>
-            <select class="custom-select" id="language" name="language"  [(ngModel)]="friendModel.language">
-                <option value="default">None</option>   
-                
-            </select>
-        </div>
+    <div class="form-group">
+      <label>Favourite Language</label>
+      <select (blur)="validateLang(language.value)" (change)="validateLang(language.value)" class="custom-select"  #language="ngModel" [class.is-invalid]="langError && language.touched" id="language" name="language" [(ngModel)]="friendModel.language">
+        <option value="default">Choose one</option>
+        <option *ngFor="let language of languages">{{ language }}</option>
+      </select>
+      <br/>
+      <small class="text-danger" [class.d-none]="!langError || language.untouched">Plase choose one language. </small>
+    </div>
 
-        <button class="btn btn-primary" id="button" type="submit">Submit Form</button>
-    </form>
+    <button class="btn btn-primary" id="button" type="submit">Submit Form</button>
+  </form>
 </div>

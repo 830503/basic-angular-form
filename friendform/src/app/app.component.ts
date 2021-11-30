@@ -8,7 +8,16 @@ import { Friend } from './friend';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  friendModel = new Friend('', '', '', 0, '');
+  languages = ['PHP', 'HTML', 'Javascript', 'CSS', 'Angular'];
+  langError = true;
+  friendModel = new Friend('', '', '', 0, 'default');
 
+  validateLang(value: string){
+    if (value === 'default'){
+      this.langError = true;
+    } else {
+      this.langError = false;
+    }
+  }
 
 }
