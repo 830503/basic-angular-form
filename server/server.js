@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { response } = require('express');
 const app = express();
 
-const PORT = 6969;
+const PORT = 9100;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}) );
@@ -22,6 +23,10 @@ let allFriends = [{fName: 'Coach', lName: 'Tim', email: 'tim.broos@becode.org', 
 
 app.get('/', function (request, response) {
     response.send('Hello from server');
+});
+
+app.get('/allFriends', function(request, response) {
+    response.send(allFriends);
 });
 
 app.post('/', function (request, response) {

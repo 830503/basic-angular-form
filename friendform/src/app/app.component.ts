@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Friend } from './friend';
+import { AddFriendService } from './add-friend.service';
 
 
 @Component({
@@ -12,6 +13,8 @@ export class AppComponent {
   langError = true;
   friendModel = new Friend('', '', '', 0, 'default');
 
+  constructor(private addFriendService: AddFriendService){}
+
   validateLang(value: string){
     if (value === 'default'){
       this.langError = true;
@@ -20,8 +23,14 @@ export class AppComponent {
     }
   }
 
-  onSubmmit(){
+  onSubmmit(): void{
     // console.log(this.friendModel);
-  }
+    this.addFriendService.addFriend(this.friendModel)
+      .subscribe(
+        data => console.log(this.friendModel),
+        error => console.error()
+        
+      )
 
+  }
 }
