@@ -1,5 +1,3 @@
-import { stringify } from "querystring";
-
 export class Friend {
     firstName: string;
     lastName: string;

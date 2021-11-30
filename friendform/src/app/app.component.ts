@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Friend } from './friend';
 
 
 @Component({
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'friendform';
+  friendModel = new Friend('', '', '', 0, '');
+
 
 }
