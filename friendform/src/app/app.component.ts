@@ -20,4 +20,8 @@ export class AppComponent {
     }
   }
 
+  onSubmmit(){
+    // console.log(this.friendModel);
+  }
+
 }
