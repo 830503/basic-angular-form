@@ -1,3 +1,5 @@
+<!-- {{form.form.valid}} -->
+
 <div class="container-fluid">
   <h2>Friend Application Form</h2>
   <form #form="ngForm">
@@ -43,6 +45,6 @@
       <small class="text-danger" [class.d-none]="!langError || language.untouched">Plase choose one language. </small>
     </div>
 
-    <button class="btn btn-primary" id="button" type="submit">Submit Form</button>
+    <button class="btn btn-primary" [disabled]="form.form.invalid || langError" id="button" type="submit">Submit Form</button>
   </form>
 </div>
