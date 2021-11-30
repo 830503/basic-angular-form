@@ -33,5 +33,8 @@ app.post('/', function (request, response) {
     response.status(200).send({"message": "Data received"});
 });
 
+app.post('/addFriends', function(request, response) {
+    allFriends.push(request.body);
+})
 
 app.listen(PORT, function () {});

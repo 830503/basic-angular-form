@@ -29,8 +29,7 @@ export class AppComponent {
       .subscribe(
         data => console.log(this.friendModel),
         error => console.error()
-        
-      )
+      );
 
   }
 }
