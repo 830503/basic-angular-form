@@ -2,7 +2,7 @@
 
 - Repository: `basic-angular-form`
 - Type of Challenge: `Learning`
-- Duration: `3 days`
+- Duration: `29/11/2021 - 01/12/2021`
 - Solo challenge
 
 
@@ -115,3 +115,4 @@
     - Make seperate pages by generating new components! You'll have to look into routing as well!
     - Get creative!
 20. Congratulations, you survived the first steps of Angular and Node. I'm proud of you!
+
