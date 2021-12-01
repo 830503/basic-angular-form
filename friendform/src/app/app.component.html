@@ -1,7 +1,7 @@
 <!-- {{form.form.valid}} -->
 
 <div class="container-fluid">
-  <h2>Friend Application Form</h2>
+  <h1>{{ title }}</h1>
   <form #form="ngForm" (ngSubmit)="onSubmmit()" novalidate>
     <div class="form-group">
       <label>First Name</label>
@@ -9,21 +9,21 @@
         class="form-control" name="firstname" [(ngModel)]="friendModel.firstName">
       <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched">Firstname is required. </small>
     </div>
-    <br/>
+    
     <div class="form-group">
       <label>Last Name</label>
       <input type="text" #lastname="ngModel" required pattern="[a-zA-Z\s]*" [class.is-invalid]="lastname.invalid && lastname.touched"
         class="form-control" name="lastname" [(ngModel)]="friendModel.lastName">
       <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">Lastname is required. </small>
     </div>
-    <br/>
+    
     <div class="form-group">
       <label>Email</label>
       <input type="email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [class.is-invalid]="email.invalid && email.touched"
         class="form-control" name="email" [(ngModel)]="friendModel.email">
       <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required. </small>
     </div>
-    <br/>
+    
     <div class="form-group">
       <label>Phone Number</label>
       <input type="text" placeholder="+324xx xxxxxx/04xx xxxxxx" #phone="ngModel" required pattern="(^\s*(?:\+?(\d{1,5}))?([-. (]*(\d{6})(?:[-.x ]*(\d{9,10}))?)\s*$)" 
@@ -35,7 +35,7 @@
         <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 10 digits</small>
       </div>
     </div>
-    <br/>
+    
     <div class="form-group">
       <label>Favourite Language: </label>
         <select (blur)="validateLang(language.value)" (change)="validateLang(language.value)" class="custom-select"
@@ -44,7 +44,7 @@
         <option value="default">Choose one language</option>
         <option *ngFor="let language of languages">{{ language }}</option>
       </select>
-      <br/>
+     <br/>
       <small class="text-danger" [class.d-none]="!langError || language.untouched">Plase choose one language. </small>
     </div>
     <br/>
@@ -53,7 +53,7 @@
   </form>
   <hr/>
 
-  <div class="container-fluid">
+  <div class="container">
     <h4>Friend List: </h4>
     <ul>
       <li *ngFor="let friend of allFriends">

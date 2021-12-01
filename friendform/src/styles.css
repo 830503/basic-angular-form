@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(4, 5, 66);
+}
+ 
+.container-fluid {
+    max-width: 550px;
+    margin: 30px auto;
+    border: 3px solid rgb(29, 29, 104);
+    padding: 10px;
+    background-color: rgba(185, 239, 248, 0.55);
+    border-radius: 5px;
+    
+}
+
+.form-group {
+    margin: 5% auto;
+    font-size: 18px;
+}
+
+select {
+    margin-left: 5%;
+    padding: 2px;
+    font-size: 15px;
+}
+
+.container {
+    margin: 5% auto;
+}
+
+li {
+    margin: 2% auto;
+    font-size: 15px;
+}
+
+
+
+

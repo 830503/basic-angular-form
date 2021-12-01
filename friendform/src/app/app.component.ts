@@ -10,7 +10,7 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'form';
+  title = 'Friend Application Form';
   languages = ['PHP', 'HTML', 'Javascript', 'CSS', 'Angular'];
   langError = true;
   friendModel = new Friend('', '', '', '', 'default');
