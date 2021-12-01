@@ -51,7 +51,9 @@
 
 <div class="list">
     <h2>Friend List: </h2>
-    <li *ngFor="let friend of allFriends">
-        {{friend.firstName + ' ' + friend.lastName + ' ' + friend.email + ' ' + friend.telephone + ' ' + friend.language}}
-    </li>
+    <ul>
+        <li *ngFor="let friend of allFriends">
+            {{friend.firstName + ' ' + friend.lastName + ' ' + friend.email + ' ' + friend.telephone + ' ' + friend.language}}
+        </li>    
+    </ul>
 </div>
