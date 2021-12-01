@@ -9,53 +9,58 @@
         class="form-control" name="firstname" [(ngModel)]="friendModel.firstName">
       <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched">Firstname is required. </small>
     </div>
-
+    <br/>
     <div class="form-group">
       <label>Last Name</label>
       <input type="text" #lastname="ngModel" required [class.is-invalid]="lastname.invalid && lastname.touched"
         class="form-control" name="lastname" [(ngModel)]="friendModel.lastName">
       <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">Lastname is required. </small>
     </div>
-
+    <br/>
     <div class="form-group">
       <label>Email</label>
       <input type="email" #email="ngModel" required [class.is-invalid]="email.invalid && email.touched"
         class="form-control" name="email" [(ngModel)]="friendModel.email">
       <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required. </small>
     </div>
-
+    <br/>
     <div class="form-group">
       <label>Phone Number</label>
-      <input type="text" #phone="ngModel" required pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched"
-        class="form-control" name="telephone" [(ngModel)]="friendModel.telephone">
+      <input type="text" #phone="ngModel" required pattern="^\d{10}$"
+        [class.is-invalid]="phone.invalid && phone.touched" class="form-control" name="telephone"
+        [(ngModel)]="friendModel.telephone">
       <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">10 Digits phone number is required. </small> -->
-      <!-- <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
-          <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required.</small>
-          <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 10 digits</small>
-      </div> -->
-
-
+      <div *ngIf="phone.errors && phone.touched">
+        <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required.</small>
+        <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 10 digits</small>
+      </div>
     </div>
-
+    <br/>
     <div class="form-group">
-      <label>Favourite Language</label>
-      <select (blur)="validateLang(language.value)" (change)="validateLang(language.value)" class="custom-select"  #language="ngModel" [class.is-invalid]="langError && language.touched" id="language" name="language" [(ngModel)]="friendModel.language">
-        <option value="default">Choose one</option>
+      <label>Favourite Language: </label>
+        <select (blur)="validateLang(language.value)" (change)="validateLang(language.value)" class="custom-select"
+        #language="ngModel" [class.is-invalid]="langError && language.touched" id="language" name="language"
+        [(ngModel)]="friendModel.language">
+        <option value="default">Choose one language</option>
         <option *ngFor="let language of languages">{{ language }}</option>
       </select>
       <br/>
       <small class="text-danger" [class.d-none]="!langError || language.untouched">Plase choose one language. </small>
     </div>
+    <br/>
 
     <button class="btn btn-primary" [disabled]="form.form.invalid || langError" id="button" type="submit">Submit Form</button>
   </form>
-</div>
+  <hr/>
 
-<div class="list">
-    <h2>Friend List: </h2>
+  <div class="container-fluid">
+    <h4>Friend List: </h4>
     <ul>
-        <li *ngFor="let friend of allFriends">
-            {{friend.firstName + ' ' + friend.lastName + ' ' + friend.email + ' ' + friend.telephone + ' ' + friend.language}}
-        </li>    
+      <li *ngFor="let friend of allFriends">
+        {{friend.firstName + ' ' + friend.lastName + ' ' + friend.email + ' ' + friend.telephone + ' ' + friend.language}}
+      </li>
     </ul>
+  </div>
+
+
 </div>

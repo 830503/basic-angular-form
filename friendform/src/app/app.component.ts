@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'form';
   languages = ['PHP', 'HTML', 'Javascript', 'CSS', 'Angular'];
   langError = true;
-  friendModel = new Friend('', '', '', NaN, 'default');
+  friendModel = new Friend('', '', '', '', 'default');
   allFriends = [{firstName: 'Coach', lastName: 'Tim', email: 'tim.broos@becode.org', telephone: '0469420666', signatureMove: 'Yeet', language: 'Javascript'}];
 
   url = 'http://localhost:9100/allFriends';

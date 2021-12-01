@@ -2,14 +2,14 @@ export class Friend {
     firstName: string;
     lastName: string;
     email: string;
-    telephone: number;
+    telephone: string;
     language: string;
 
     public constructor(
         firstName: string,
         lastName: string,
         email: string,
-        telephone: number,
+        telephone: string,
         language: string
     ) {
         this.firstName = firstName;
