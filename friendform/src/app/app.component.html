@@ -5,21 +5,21 @@
   <form #form="ngForm" (ngSubmit)="onSubmmit()" novalidate>
     <div class="form-group">
       <label>First Name</label>
-      <input type="text" #firstname="ngModel" required [class.is-invalid]="firstname.invalid && firstname.touched"
+      <input type="text" #firstname="ngModel" required pattern="[a-zA-Z\s]*" [class.is-invalid]="firstname.invalid && firstname.touched"
         class="form-control" name="firstname" [(ngModel)]="friendModel.firstName">
       <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched">Firstname is required. </small>
     </div>
     <br/>
     <div class="form-group">
       <label>Last Name</label>
-      <input type="text" #lastname="ngModel" required [class.is-invalid]="lastname.invalid && lastname.touched"
+      <input type="text" #lastname="ngModel" required pattern="[a-zA-Z\s]*" [class.is-invalid]="lastname.invalid && lastname.touched"
         class="form-control" name="lastname" [(ngModel)]="friendModel.lastName">
       <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">Lastname is required. </small>
     </div>
     <br/>
     <div class="form-group">
       <label>Email</label>
-      <input type="email" #email="ngModel" required [class.is-invalid]="email.invalid && email.touched"
+      <input type="email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [class.is-invalid]="email.invalid && email.touched"
         class="form-control" name="email" [(ngModel)]="friendModel.email">
       <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required. </small>
     </div>
