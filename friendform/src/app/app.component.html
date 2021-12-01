@@ -26,7 +26,7 @@
     <br/>
     <div class="form-group">
       <label>Phone Number</label>
-      <input type="text" #phone="ngModel" required pattern="^\d{10}$"
+      <input type="text" placeholder="+324xx xxxxxx/04xx xxxxxx" #phone="ngModel" required pattern="(^\s*(?:\+?(\d{1,5}))?([-. (]*(\d{6})(?:[-.x ]*(\d{9,10}))?)\s*$)" 
         [class.is-invalid]="phone.invalid && phone.touched" class="form-control" name="telephone"
         [(ngModel)]="friendModel.telephone">
       <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">10 Digits phone number is required. </small> -->
